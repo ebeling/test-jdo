@@ -5,18 +5,21 @@
     version="1.0">
 
     <persistence-unit name="MyTest">
-        <!-- Add all of your model classes here -->
-        <class>mydomain.model.Person</class>
+        <mapping-file>mydomain/model/package.jdo</mapping-file>
+        <!-- Add all of your model classes here -->       
         <exclude-unlisted-classes />
         <properties>
             <!-- Update these datastore details if different -->
             <property name="javax.jdo.PersistenceManagerFactoryClass" value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory"/>
+           
             <property name="javax.jdo.option.ConnectionURL" value="jdbc:h2:mem:nucleus"/>
             <property name="javax.jdo.option.ConnectionDriverName" value="org.h2.Driver"/>
             <property name="javax.jdo.option.ConnectionUserName" value="sa"/>
             <property name="javax.jdo.option.ConnectionPassword" value=""/>
 
-            <property name="datanucleus.schema.autoCreateAll" value="true"/>
+			<property name="datanucleus.Multithreaded" value="true"/>
+			<!-- 
+			 -->
         </properties>
     </persistence-unit>
 

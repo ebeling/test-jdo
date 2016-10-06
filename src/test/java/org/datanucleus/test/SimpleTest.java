@@ -21,9 +21,14 @@ public class SimpleTest
         try
         {
             tx.begin();
-
-            // [INSERT code here to persist object required for testing]
-
+            Field f1 =new Field(1,"rk1");
+            Field f2 = new Field(2,"rk2");
+            ArrayList<Field> fields = new ArrayList<>();
+            fields.add(f1);
+            fields.add(f2);
+            FieldContainer fc = new FieldContainer("FC1");
+            fc.setFields(fields);
+            pm.makePersistent(fc);
             tx.commit();
         }
         catch (Throwable thr)
